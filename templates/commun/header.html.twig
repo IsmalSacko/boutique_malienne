@@ -1,0 +1,33 @@
+ <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand  mr-2" href="{{ path('home_index') }}">Boutique-Malienne</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link  mr-2 " href="{{ path('produit_index') }}">Nos~Produist </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link mr-2" href="{{ path('home_index') }}">Qui sommes nous
+                        ? </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link  " href="{{ path('home_index') }}">Contact </a>
+                </li>
+            </ul>
+            <div class="nabar_item">
+                {% if app.user %}
+                    <a href="{{ path('panier_index') }}"><i class="fas fa-shopping-cart text-light"></i></a>
+                    <a class="text-white" href="{{ path('account_index') }}">Mon compte
+                        <small>({{ app.user.firstname }})</small>
+                    </a> | <a class="text-light" href="{{ path('app_logout') }}">Déconnexion</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
+                    <a href="{{ path('panier_index') }}"><i class="fas fa-shopping-cart text-light"></i></a>
+                {% endif %}
+            </div>
+        </div>
+ </nav>
+
+

@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement de ma commande- La boutiue Malienne !{% endblock %}
+{% block style %} {% endblock %}
+{% block body %}
+    <div class="container">
+        <a class="btn btn-info btn-sm float-right" href="{{ path('panier_index') }}">Retour</a>
+        <h2>Mon récaptulatif </h2>
+        <p>Vérifiez vos informations avant de payer la commande !</p>
+        <hr>
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <b>Mon adresse de livraison</b>
+                <div class="form-check">
+                    {{ delivery | raw }}
+                </div>
+                <hr>
+                <strong>Mon trasporteur :</strong>
+                <div class="form-check">
+                    {{ carrier.name }},<br>
+                    {{ carrier.description }}<br>
+                    <strong class="text-danger">{{ (carrier.price / 100) | number_format(2,',','.') }} &euro;</strong>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="text-center">
+                    <b>Ma commande</b>
+                </div>
+                <div class="order_sumary mt-4">
+                    {% set total = null %}
+                    {% for key, product in cart  %}
+                        <div class="row {% if key > 0 %} mt-2 {% endif %} ">
+                            <div class="col-2">
+                                <img class="image-produit" src="/uploads/{{ product.product.illustration }}"
+                                     alt="{{ product.product.name }} "><br>
+                            </div>
+                            <div class="col-8 my-auto">
+                                {{ product.product.name }}<br>
+                                <small>
+                                    {{ product.product.subtitle }}<br>
+                                    x{{ product.quantity }}
+                                </small>
+                            </div>
+                            <div class="col-2 my-auto">
+                              {{ ((product.product.price * product.quantity)/100) | number_format(2,',','.')}} &euro;
+                            </div>
+                        </div>
+                        {% set total = total + (product.product.price * product.quantity) %}
+                    {% endfor %}
+                </div>
+                <hr>
+                <strong>Sous-total : </strong>{{ (total/100) | number_format(2,',','.')}} &euro;<br>
+                <strong>Livraison : </strong>{{ (carrier.price / 100) | number_format(2, ',','.') }} &euro;
+                <hr>
+                <strong>Total : </strong>{{ ((total/100) + (carrier.price /100))| number_format(2,',','.')}} &euro;
+                    <div class="btn btn-success btn-block mt-3" id="checkout-button">Payer |
+                        {{ ((total/100) + (carrier.price /100))| number_format(2,',','.')}} &euro;
+                    </div>
+
+                {#{{ (product.product.price /100) | number_format(2)}} &euro;#}
+
+            </div>
+
+        </div>
+    </div>
+    {% block javascripts %}
+        <script src="https://js.stripe.com/v3/"></script>
+    {% endblock %}
+
+{% endblock %}
+{% block script %}
+    <script type="text/javascript">
+       var stripe = Stripe("pk_test_51IIlAjBftXNUfaINdwfk9CkniofXNUybQmdNFxXspYaMLyRWLlzjqEn2dawXYb3r1IIht19eFH5vYNwrmzF077OO0080TWfftf");
+        var checkoutButton = document.getElementById("checkout-button");
+
+        checkoutButton.addEventListener("click", function () {
+            fetch("/commande-create-session/{{ reference }}", {
+
+                method: "POST",
+            })
+                .then(function (response) {
+
+                    return response.json();
+
+                })
+
+                .then(function (session) {
+                    if (session.error =='order'){
+                        window.location.reparse({{ path('order_index') }})
+                    }else {
+
+                    return stripe.redirectToCheckout({ sessionId: session.id });
+                    }
+                })
+
+                .then(function (result) {
+
+                    if (result.error) {
+
+                        alert(result.error.message);
+
+                    }
+
+                })
+
+                .catch(function (error) {
+
+                    console.error("Error:", error);
+
+                });
+
+        });
+
+    </script>
+
+{% endblock %}
+

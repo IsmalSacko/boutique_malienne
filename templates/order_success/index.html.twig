@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de paiement !{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h3 class="mt-5">Confirmation de paiement de votre commande sur la Boutique Malienne !</h3>
+<p class="text-justify">
+    Bonjour <b>{{ app.user.fullName}}</b>, <br>
+    nous vous remercions pour votre commande <b>n°{{ order.reference }}</b> passée sur la
+    boutique <a href="{{ path('home_index') }}">malienne</a>. <br>
+    Une confirmation vient de vous être envoyée par email à l'adresse <b>{{ order.user.email }}</b>
+    <hr>
+    Votre commande sera livrée par <b>{{ order.cariername }}</b> à l'adresse suivante : <br>
+    {{ order.delivery | raw }}
+    <hr>
+    Pour suivre votre commande, rendez-vous dans votre <a href="{{ path('mes_commandes') }}">compte utilisateur</a>
+    puis dans l'onglet "Mes commandes".
+</p>
+</div>
+{% endblock %}

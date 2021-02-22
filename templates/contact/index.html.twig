@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter !{% endblock %}
+
+{% block body %}
+    <div class="container{% if block ('carousel') is not defined %}{% endif %}">
+        <h1 class="text-info text-center">Veillez nous contacter ici !</h1>
+
+        {% if notify %}
+            <div class="alert alert-info">
+                {{ notify }}
+                <hr>
+            </div>
+        {% endif %}
+        <div class="col-md-4 m-auto">
+            {{ form_start(form, {action:path('contact')}) }}
+            {{ form_widget(form) }}
+
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+{% endblock %}

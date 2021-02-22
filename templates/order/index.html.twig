@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vaider ma commande- La boutiue Malienne !{% endblock %}
+{% block style %} {% endblock %}
+{% block body %}
+   <div class="container">
+       <a class="btn btn-info btn-sm float-right" href="{{ path('panier_index') }}">Retour</a>
+       <h2>Je passe ma commande</h2>
+       <p>Choississez vos préférences avant de passer votre commande sur la boutique malienne</p>
+       <hr>
+       <div class="row mb-5">
+           <div class="col-md-6">
+               {% set formHtlm %}
+                   {{ form_start(form, {action:path('order_details_index')}) }}
+                {{ form_label(form.adresses, 'Choisissez votre de livraison') }}
+                   <a class="btn btn-info btn-sm" href="{{ path('add_account_adress') }}">Ajouter une nouvelle adresse</a>
+                   {{ form_end(form) }}
+               {% endset %}
+               <b>{{ formHtlm | replace({'[br]' : '</br>'}) | raw }}</b>
+           </div>
+           <div class="col-md-6">
+               <div class="text-center">
+                   <b>Récaptulatif de ma commande</b>
+                   <p>Retrouver le récaptulatif de vos produits</p>
+               </div>
+               <div class="order_sumary">
+                   {% for key, product in cart  %}
+                   <div class="row {% if key > 0 %} mt-2 {% endif %} ">
+                       <div class="col-2">
+                           <img class="image-produit" src="/uploads/{{ product.product.illustration }}"
+                                alt="{{ product.product.name }} "><br>
+                       </div>
+                       <div class="col-8 my-auto">
+                           {{ product.product.name }}<br>
+                           {{ product.product.subtitle }}<br>
+                       </div>
+                       <div class="col-2 my-auto">x{{ product.quantity }}</div>
+
+                   </div>
+               {% endfor %}
+               </div>
+
+           </div>
+
+       </div>
+   </div>
+{% endblock %}

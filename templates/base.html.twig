@@ -1,12 +1,82 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>ecommerce~{% block title %}{% endblock %}</title>
+    {% block style %} {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {#<meta name="viewport" content="width=device-width, user-scale=no">#}
+    <meta name="description" content="ecommerce Mali">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ asset('/css/ecommerce.css') }}" type="text/css" media="all" />
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
+
+</head>
+<body>
+        {% include 'commun/header.html.twig' %}
+
+        {% if block ('carousel') is defined %}
+            <main role="main">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        {% for key, header in headers %}
+                        <li data-target="#myCarousel" data-slide-to="{{ key }}" {% if key == 0 %} class="active" {%
+                            endif %}></li>
+                        {% endfor %}
+
+                    </ol>
+                    <div class="carousel-inner">
+                        {% for key, header in headers %}
+            <div class="carousel-item  {% if key == 0 %} active {% endif %}
+            " style="background: url('/uploads/{{ header.illustration}}');
+                    background-size: cover;">
+
+                                <div class="container">
+                                    <div class="carousel-caption text-left">
+                                        {# <h1 class="text-secondary">{{ header.title }}</h1> #}
+                                        {# <p class="text-secondary">{{ header.content }}.</p> #}
+                                        <p><a class="btn btn-warning btn-sm" href="{{ header.btnUrl }}"
+                                              role="button">{{ header.btnTitle }}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </main>
+
+        {% endif %}
+
+        {% block body %}
+
+        {% endblock %}
+        {% include 'commun/footer.html.twig' %}
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://kit.fontawesome.com/589fbbd582.js" crossorigin="anonymous"></script>
+        <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+        {% block javascripts %} {% endblock %}
+        {% block script %}
+            
+        {% endblock %}
+
+
+</body>
 </html>
+
+
+

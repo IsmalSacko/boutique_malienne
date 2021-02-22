@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page introuvale {% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <h1 class="h3 font-weight-normal text-center text-danger mt-5">Page introuvable</h1>
+        <p class="text-center">Désolé cette page ne semble pas être accessible pour le moment !
+            <br><br><a class="btn btn-info btn-sm" href="{{ path('home_index') }}">Revevir à l'accueil</a>
+        </p>
+    </div>
+{% endblock %}
+

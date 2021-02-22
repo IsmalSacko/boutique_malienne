@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Echec de paiement !{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h3 class="mt-5">Echec de paiement de votre commande sur la Boutique Malienne !</h3>
+        <p class="text-justify">
+            Bonjour <b>{{ app.user.fullName}}</b>, <br>
+            IL semblerait que paiement est échoué pour votre commande<b>n°{{ order.reference }}</b> passée sur la
+            boutique <a href="{{ path('home_index') }}">malienne</a>. <br>
+            Un message d'erreur vient de vous être envoyé par email à l'adresse <b>{{ order.user.email }}</b> <br>
+            <a class="btn btn-success mt-2" href="{{ path('order_index') }}">Réessayez le paiement</a>
+        </p>
+    </div>
+{% endblock %}

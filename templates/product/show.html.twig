@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+{% block title %}Afficher un  produit{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h5 class="text-center mt-5 text-info">Détails du produit <strong>'{{ product.name }}'</strong></h5>
+
+        <div class="row py-2">
+            <div class="col-md-5">
+                <div class="produit-item text-center">
+                    <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid" >
+                </div>
+            </div>
+            <div class="col-md-7 text-justify my-auto">
+                <h5>{{ product.name }}</h5>
+                <p style="display: block">{{ product.subtitle }}</p>
+                <strong> Tarif : {{ (product.price /100) | number_format(2) }} &euro;</strong>
+                <hr>
+                {{ product.description | raw }}
+                <p>
+               <a class="btn btn-primary rounded-pill mt-2" href="{{ path('produit_index') }}">
+                   <i class="fas fa-arrow-left"></i>
+                   </a>
+                        <span class="h3"> | </span> <a class="btn btn-primary rounded-pill"
+                        href="{{ path('add_cart',{id : product.id}) }}">
+                            <i class="fas fa-shopping-basket">Ajouter au panier</i>
+                   </a>
+                </p>
+
+
+            </div>
+        </div>
+        <hr>
+        <h2>Nos Meilleurs produits en moment</h2>
+        <p>Découvrez nos porduits les plus vendus</p>
+        <div class="row">
+            {% for produit in best %}
+                {% include 'product/commun_index.html.twig' %}
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

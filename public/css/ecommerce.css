@@ -1,0 +1,78 @@
+
+.form-check{
+    background-color: #f4f8ff;
+    padding: 20px 65px;
+    margin-top: 7px;
+    top: 24px;
+}
+
+.container{
+
+    margin-bottom:6%;
+}
+
+.order_sumary{
+    background-color: #f4f8ff;
+    padding: 20px;
+    margin-top:22px;
+}
+.image-produit{
+    width: 75px;
+}
+.mesProduit{
+
+    padding: 10px;
+    margin-top : 6px;
+
+}
+
+.footer-per{
+
+    position: absolute;
+    text-align: center;
+    padding-top: 1px;
+    background-color: #dfeaff;
+
+}
+.comandFinal{
+    margin-top: 5%;
+}
+
+.account-item{
+    background-color: #f1f2f6;
+    padding :30px;
+}
+.account-item  a {
+    text-transform: uppercase;
+    font-size:13px;
+    color: #4b6584;
+    font-weight: bold;
+}
+.account-item  a:hover {
+
+    color: #778ca3;
+    text-decoration: none
+}
+
+@media screen and (max-width: 640px) {
+    .container {
+        margin-top:18%;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .container {
+        margin-top:13%;
+    }
+}
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+
+    .container {
+        margin-top:8%;
+    }
+}@media screen and (min-width: 540px) and (max-width: 720px) {
+
+    .container {
+        margin-top:12%;
+    }
+}

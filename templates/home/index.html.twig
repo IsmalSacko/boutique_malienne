@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+{% block title %}Home-page{% endblock %}
+{% block carousel %}{% endblock %}
+{% block body %}
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <h2>Nos Meilleurs produits en moment</h2>
+        <p>Découvrez nos porduits les plus vendus</p>
+        <div class="row">
+            {% for produit in best %}
+                {% include 'product/commun_index.html.twig' %}
+                
+            {% endfor %}
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Chaque entreprise, un site web, <span class="text-muted">une
+                        vraie passion pour
+                        notre équipe de développeurs.</span></h2>
+
+            </div>
+            <div class="col-md-4">
+                <img class="img-fluid" src="{{ asset('images/first.jpg') }}" alt="">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">
+                    Développement web, <span class="text-muted">
+                        c'est notre métier duquotidien
+                       </span></h2>
+                <p class="lead">Venez découvrir nos métiers du wet et nos formations à ces métiers</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+
+                    <img class="img-fluid" src="{{ asset('images/second.jpg') }}" alt="">
+
+            </div>
+        </div>
+
+
+    </div><!-- /.container -->
+
+{% endblock %}
+
+
+

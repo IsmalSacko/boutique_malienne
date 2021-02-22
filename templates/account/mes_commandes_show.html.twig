@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ma commande !{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <a class="btn btn-info btn-sm float-right mt-3" href="{{ path('mes_commandes') }}"><i class="fas
+        fa-arrow-circle-left"></i>Retour</a>
+        <h3 class="mt-3">Ma commande {{ order.reference}} </h3>
+        <hr>
+        Status de la commande :
+        <span class="badge badge-warning">
+            {% if order.state == 1 %}
+                    Payée
+                {% elseif order.state == 2 %}
+                    En cours de préparation
+                {% elseif order.state == 3 %}
+                    En cours de livraison
+            {% endif%}
+        </span>
+        <br>
+        Commande passée le : <span class="badge badge-secondary">{{ order.createdAt | date('d/m/Y') }}</span><br>
+        Référencence de ma commande : <span class="badge badge-secondary">{{ order.reference }}</span><br>
+        Transporteur choisi : <span class="badge badge-secondary">{{ order.carierName }}</span>
+        <hr>
+        <b>Détails :</b>
+        <table class="table mt-2">
+            <thead>
+            <tr>
+                <th scope="col">Produit</th>
+                <th scope="col">Quantité</th>
+                <th scope="col">Prix unitaire</th>
+                <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for product in order.orderDetails  %}
+                <tr>
+                    <td>{{ product.product }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ (product.price/100) | number_format(2,',', '.') }} &euro;</td>
+                    <td>{{ (product.total/100) | number_format(2,',', '.') }} &euro;</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-right">
+            <strong>Sous-total : {{ (order.total/100) | number_format(2,',', '.') }} </strong>&euro; <i class="fas fa-money-bill-wave"></i><br>
+            <strong>Livraison : {{ (order.carierPrice/100) | number_format(2,',', '.') }} </strong>&euro; <i class="fas fa-money-bill-wave"></i><br>
+            <strong>Total général: {{ ((order.carierPrice + order.total) /100 )| number_format(2,',', '.')
+                }}</strong> &euro; <i class="fas fa-money-bill-wave"></i>
+        </div>
+    </div>
+{% endblock %}

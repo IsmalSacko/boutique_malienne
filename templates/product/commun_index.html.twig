@@ -1,0 +1,13 @@
+<div class="col-md-4 mesProduit">
+    <div class="produit-item text-center">
+        <a href="{{ path('produit_sow_index', {slug : produit.slug}) }}">
+            <img src="/uploads/{{ produit.illustration }}"
+                 alt="{{ produit.name }}" class="img-fluid image-produit">
+        </a>
+        <a href="{{ path('produit_sow_index', {'slug': produit.slug }) }}"><h5>{{ produit.name }}</h5>
+        </a>
+        <span style="display: block">{{ produit.subtitle }}</span>
+        <strong>{{ (produit.price /100) | number_format(2) }} &euro;</strong>
+        <a href="{{ path('produit_sow_index', {slug : produit.slug}) }}"><i class="fas fa-eye"></i></a>
+    </div>
+</div>
