@@ -113,6 +113,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/vendor/mailjet/mailjet-apiv3-php" />
+      <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
