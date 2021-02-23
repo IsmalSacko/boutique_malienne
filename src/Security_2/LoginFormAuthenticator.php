@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Security;
+namespace App\Security_2;
 use App\Entity\User;
+use App\Entity\User_2;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -66,7 +67,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
             throw new InvalidCsrfTokenException();
         }
 
-        $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
+        $user = $this->entityManager->getRepository(User_2::class)->findOneBy(['email' => $credentials['email']]);
 
         if (!$user) {
             // fail authentication with a custom error
@@ -97,7 +98,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         }
 
 
-        return new RedirectResponse($this->urlGenerator->generate('home'));
+        return new RedirectResponse($this->urlGenerator->generate('agence'));
     }
 
     protected function getLoginUrl()
