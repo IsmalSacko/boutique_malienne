@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonces{% endblock %}
+{#{% block carousel %}
+    
+{% endblock %}#}
+
+{% block body %}
+   <div class="container">
+         <div class="row">
+    {% for ad in ad %}
+        <div class="col-lg-4 col-md-6">
+    <h5 class="mt-2 text-center text-info">{{ ad.title }}</h5>
+            <div class="card bg-light mb-3">
+                <div class="card-header text-center">
+                    {{ad.room}} site à
+                    <strong>{{ ad.price }} FCFA</strong>
+                    <br>
+                    <small>publié le {{ ad.UpdatedAt |date("m/d/Y") }}</small>
+                    {# Pour afficher une image téléchargée par vich, on peut soit le faire en indicant le chemin de l'image manuellement,
+                    soit par vich_uploader_asset(notre entité, la proprièté de l'image dans cette entité)
+
+                     #}
+
+                    <img style="height: 150px; width: 100%; display: block;" src="{{ vich_uploader_asset(ad, 'imageFile') | imagine_filter('my_thumb') }}" alt="{{ ad.imageFile}}"></img>
+                    <div class="card-body">
+                        <p class="card-text text-justify">
+                            {{ad.content | raw}}
+                        </p>
+                       
+                        <a class="btn btn-success" href="{{ path('ad_show', {'id': ad.id}) }}">show</a>
+                        {% if app.user %}
+                        <a class="btn btn-primary" href="{{ path('ad_edit', {'id': ad.id}) }}">edit</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div> 
+        </div> 
+        {% else %}
+            <div class="danger">Aucune annonce pour le moment !! </div>       
+    {% endfor %}
+    
+    </div>
+        <a class="btn btn-success " href="{{ path('ad_new') }}">Create new</a>
+   </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'baseblog.html.twig' %}
+
+{% block title %}Page de Chat{% endblock %}
+{% block body %}
+{% include "common/entete.html.twig" %}
+<div class="container">     
+    <h1 class="text-center center p-3">Bienvenu sur la page de Tchat</h1>
+    <div class="row">       
+         <div class="col-md-4 my-2 shadow ">
+             <h2 class="text-success">Messages récents:</h2>
+            {% for contact in contact | slice (0, 3) %}
+                <p class="bg-light text-primary"> {{contact.prenom }} : {{ contact.message}}</p>
+            {% endfor %}
+         
+         </div>
+          <div class="col-md-4 col  my-2 mx-auto">
+                <div class="form-conrtol">            
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}                
+                    <button  type="submit" class="btn btn-primary">Envoyer</button>
+                    
+                    {{ form_end(form) }}
+                </div>               
+        </div> 
+    </div>
+    
+</div>
+
+{% block javascripts %}
+{% include "common/footer.html.twig" %}
+{% endblock %}
+{% endblock %}
