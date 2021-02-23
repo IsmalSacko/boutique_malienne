@@ -21,7 +21,7 @@ class StripeController extends AbstractController
     public function index(EntityManagerInterface $manager,Cart $cart, $reference): Response
     {
         $product_for_srtipe = [];
-        $YOUR_DOMAIN = 'https://127.0.0.1:8000';
+        $YOUR_DOMAIN = 'https://ismaeldev.fr';
         $order = $manager->getRepository(Order::class)->findOneByReference($reference);
         if (!$order){
            new JsonResponse(['error' => 'order']);
@@ -56,7 +56,7 @@ class StripeController extends AbstractController
         ];
 
         //Initiaisation de stripe
-        Stripe::setApiKey('sk_test_51IIlAjBftXNUfaINVmuPvyGnzFsFQxSmL6RJ3goPDlbYTpsqc7xa1a7F1YVxf0unoe9J1EkO4IwCf8kraTUwhnua006iGcrEZ8');
+        Stripe::setApiKey('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');
         $checkout_session = Session::create([
             'customer_email' => $this->getUser()->getEmail(),
             'payment_method_types' => ['card'],
