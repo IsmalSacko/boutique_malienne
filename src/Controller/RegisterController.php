@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Classe\Mailjet;
 use App\Entity\User;
-use App\Form\UserType;
+use App\Form\User_2Type;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,7 +37,7 @@ class RegisterController extends AbstractController
     {
         $user = new User();
         $notification = null;
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(User_2Type::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
             $uniqemail = $this->manager->getRepository(User::class)->findOneByEmail($user->getEmail());

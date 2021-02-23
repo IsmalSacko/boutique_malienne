@@ -34,6 +34,14 @@
     background-color: #dfeaff;
 
 }
+.nabar_item a {
+    text-decoration: none;
+    color: #fff;
+}
+.nabar_item a:hover {
+
+    color: #8ad0b5;
+}
 .comandFinal{
     margin-top: 5%;
 }

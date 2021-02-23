@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Ad{% endblock %}
+
+{% block body %}
+   <div class="">
+     <div class="container">
+         <h1 class="text-center">Création d'une nouvelle annonce</h1>
+
+         {{ include('secondsite/ad/_form.html.twig') }}
+
+         <a class="btn btn-secondary mt-3 rounded-pill" href="{{ path('ad_index') }}">back to list</a>
+     </div>
+     </div>
+{% endblock %}

@@ -1,0 +1,159 @@
+{% extends 'secondsite/base.html.twig' %}
+{% block title %} Page d'accueil !{% endblock %}
+{% block carousel %}{% endblock %}
+{% block body %}
+
+    {#<h1 class="alert alert-info text-center"> Super-Agence-Digitale !</h1>#}
+    <div class="jumbotron container">
+            <h3 class="text-info text-center">Bienvenue sur notre supper Agence de solutions digitales !</h3>
+
+                <p class="lead text-justify">
+                    Nous sommes une agence de solutions digitales en plein cœur de BAMAKO
+
+                    dont notre siège se trouve à HAMDALLAYE ACI 2000 en face du rond-point "bougie-Bâ". Nous vous
+                    proposons nos solutions digitales pour la création/conception de vos sites internet avec les
+                    nouvelles du web.
+
+                    Vous êtes une entreprise PME, une startup ou une petite entreprise et que vous avez besoin d'avoir
+                    votre propre site internet qui tourne sous <i class="fab fa-wordpress text-adrk">WordPress</i>,
+                    PrestaShop, <i class="fab fa-joomla text-primary">Joomla</i> ou encore d'autres technologie
+                    spécifique avec possibilité de choix de langage de programmation tels que <i class="fab fa-php text-success">PHP</i>, <i class="fab fa-python text-warning">Python</i>, <i class="fab fa-java text-danger">JAVA</i>, <i class="fab fa-js-square text-info">JAVASCRIPT</i>
+                    alors nous sommes là pour apporter des solution à vos soucis liés à la communication digitale.
+                </p>
+
+                {#<p class="lead">
+                    <a class="btn btn-success btn-lg" href="#" role="button">En savoir plus</a>
+                </p>#}
+
+            {#<div class="col-lg-5">
+
+              #}{#  <div class="mapouter">
+                    <div class="gmap_canvas">
+                        <iframe width="500" height="400" id="gmap_canvas"
+                                src="https://maps.google.com/maps?q=bamako&t=&z=9&ie=UTF8&iwloc=&output=embed"
+                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                        </iframe>
+                    </div>
+
+                </div>#}{#
+            </div>        #}
+    </div>
+
+
+    <div class="marketing container">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row ">
+            <div class="col-lg-4 text-center" id="dev_web">
+                <img class="bd-placeholder-img rounded-circle" width="400" height="200" src="{{ asset('css_2/captures-site/php.png') }}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text></img>
+                <h2>Développement web</h2>
+                <p class="text-justify">
+                    Nous partons de zéro pour construire le projet qu’il vous faut et avec vous. Nous avançons ensemble
+                    pour vous aider sur des questions budgetaires et d’ordre technique...
+                </p>
+                <p><a class="btn btn-primary"href="/dev-web/#dev_web" role="button">Détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4" id="mob">
+                <img class="bd-placeholder-img rounded-circle" width="400" height="200" src="{{ asset('css_2/captures-site/mob.jpg') }}"
+                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140" alt="">
+                <title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
+                                                                                                    dy=".3em"></text>
+                <h2>Applications mobile</h2>
+                <p>
+                    Nos équipes réalisent des applications mobiles qui sortent du lot pour séduire un maximum
+                    d’utilisateurs : développement d’application sportive, m-commerce, gestion de chantier, jeu,
+                    sondages, street marketing, tutos.....
+                </p>
+                <p class="text-center"><a class="btn btn-primary" href="/dev-web/#mob" role="button">Détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4 text-justify" id="design">
+                <img class="bd-placeholder-img rounded-circle" width="300" height="200"
+                     src="{{ asset('css_2/captures-site/design.jpg') }}" preserveAspectRatio="xMidYMid slice"
+                     focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="50%" y="50%" fill="#777" dy=".3em"></text>
+                </img>
+                <h2>Web-Design</h2>
+                <p class="text-justify">
+               Aujourd’hui, il est devenu indispensable de se faire accompagner par une agence webdesign pour la création de son site internet. En effet, lorsque l’on souhaite développer son activité sur internet, il est primordial de faire appel à des experts,...
+                </p>
+                <p class="text-center"><a class="btn btn-primary" href="/dev-web/#design" role="button">Détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4 text-justify" id="seo">
+                <img class="bd-placeholder-img rounded-circle" width="300" height="230"
+                     src="{{ asset('css_2/captures-site/seo.png') }}" preserveAspectRatio="xMidYMid slice"
+                     focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="50%" y="50%" fill="#777" dy=".3em"></text>
+                </img>
+                <h2>Référencements</h2>
+                <p>
+                    A partir de l'analyse de votre site web, nous définissons des stratégies SEO personnalisées pour
+                    gagner des positions stratégiques et durables dans les pages de résultats et booster le trafic de
+                    votre sur votre site internet. Nos chefs de projet vous accompagnent jusqu’a l’atteinte et le dépassement de vos
+                    objectifs.
+                </p>
+                <p class="text-center"><a class="btn btn-primary" href="/dev-web/#seo" role="button">Détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4 text-justify" id="refonte">
+                <img class="bd-placeholder-img rounded-circle" width="300" height="230"
+                     src="{{ asset('css_2/captures-site/refonte.png') }}" preserveAspectRatio="xMidYMid slice"
+                     focusable="false" role="img" aria-label="Placeholder: 140x140" alt=""><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="50%" y="50%" fill="#777" dy=".3em"></text>
+                </img>
+                <h2>Refonte</h2>
+                <p class="text-justify">
+                    Il n’est pas toujours nécessaire de procéder à un remodelage de site internet, il le faut seulement
+                    pour certaines raisons. Si vous vous trouvez dans l’un des situations suivantes, vous êtes invité à
+                    passer par la refonte de votre site internet :
+                </p>
+                <p class="text-center"><a class="btn btn-primary" href="/dev-web/#refonte" role="button">Détails &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4 text-justify" id="UX">
+                <img class="bd-placeholder-img rounded-circle" width="300" height="230"
+                     src="{{ asset('css_2/captures-site/ux-ui.png') }}" preserveAspectRatio="xMidYMid slice"
+                     focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="50%" y="50%" fill="#777" dy=".3em"></text>
+                <h2>Expérience Utilisateur</h2>
+                Nous accompagnons les entreprises et les services publics dans la compréhension de leurs
+                utilisateurs ainsi que dans la mise en place de stratégies d’innovation.
+                Notre mission consiste à articuler le design, la sociologie et la technologie pour accélérer les
+                projets et leur donner consistance...
+                <p>
+                </p>
+                <p class="text-center"><a class="btn btn-primary" href="/dev-web/#UX" role="button">Détails &raquo;
+                    </a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4 text-justify">
+                <img class="bd-placeholder-img rounded-circle" width="300" height="230"
+                     src="{{ asset('css_2/captures-site/ecom.png') }}" preserveAspectRatio="xMidYMid slice"
+                     focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="50%" y="50%" fill="#777" dy=".3em"></text>
+                <h2>site E-Commerce</h2>
+                <p id="ecom">
+                Vous êtes désireux de faire connaitre votre enseigne sur tout le territoire et ainsi élargir votre clientèle au travers de votre commerce en ligne.
+                en cette période difficile, où vous ne pouvez plus ouvrir votre boutique. Vous optez pour le click & collecte qui sera demain votre nouveau moyen de distribution auprès de votre clientèle de proximité.       
+                
+                </p>
+                <p class="text-center"><a class="btn btn-primary" href="/dev-web/#UX" role="button">Détails &raquo;
+                    </a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4 text-justify" id="vitrine">
+                <img class="bd-placeholder-img rounded-circle" width="300" height="230"
+                     src="{{ asset('css_2/captures-site/vitrine.jpg') }}" preserveAspectRatio="xMidYMid slice"
+                     focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777"></rect>
+                <text x="50%" y="50%" fill="#777" dy=".3em"></text>
+                <h2>Site Vitrine</h2>
+                Votre entreprise à besoin de bien plus qu'une carte de visite, elle à besoin d'être présente sur internet autant pour se faire connaitre que pour faire connaitre ces services c'est pour cette raison que Serenity vous vous accompagne dans la conception de votre site vitrine...
+                <p>
+                </p>
+                <p class="text-center"><a class="btn btn-primary" href="/dev-web/#UX" role="button">Détails &raquo;
+                    </a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+{% endblock %}

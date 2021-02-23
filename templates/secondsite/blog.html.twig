@@ -1,0 +1,71 @@
+{% extends "secondsite/base.html.twig" %}
+{% block title %}Blog pour "Pro-web-designer"{% endblock %}
+
+{% block body %}
+
+{% include "secondsite/common/entete.html.twig" %}
+<div class="container-fluid">
+
+	<div
+		class="row ">
+		{# niveau1 #}
+		<div class="col-md-6 col-sm-6 col-lg-4 p-3">
+    <h1 class="text-center">Citations</h1>
+			<div class="bg-light shadow p-5">
+				<div id="citation" class="text-center">
+					La vie est un mystère qu'il faut vivre, et non un problème à résoudre.
+				</div>
+				<div class="bg-secondary w-25 mx-auto p-1 my-4"></div>
+				<div id="auteur" class="text-center">
+					Gandhi
+				</div>
+			</div>
+
+			<div id="nouveau" class="mt-2 text-center p-3 text-white font-weight-bold text-uppercase">
+				Nouvelle citation
+			</div>
+
+		</div>
+		{# niveau2 #}
+		<div class="col-md-6 col-sm-6 col-lg-4 p-3">
+    <h1 class="text-center">Météo</h1>
+			<div class="bg-light shadow p-5" id="colTemperature">
+				<div id="" class="text-center">
+					<h1><span id="ville">paris</span></h1>
+				</div>
+				<div class="bg-secondary w-25 mx-auto p-1 my-4"></div>
+				<div id="temperature" class="text-center">
+					<span id="temperature_label"> xx.x</span> °C
+				</div>
+			</div>
+
+			<div id="changer" class="mt-2 text-center p-3 text-white font-weight-bold text-uppercase ">
+              Changer de ville
+      </div>
+
+		</div>
+		{# niveau3 #}
+		<div class="col-md-6 col-sm-6 col-lg-4 p-3">
+    <h1 class="text-center" id="titreCV">Curriculum vitae</h1>
+			<div class="shadow ">
+				<div id="cv">
+					<a href="/images/cv.png"><img class="col-md-12" src="/images/cv.png" alt="cv"></a> 
+				</div>				
+			</div>
+
+			<div id="autrecv" class="mt-2 text-center p-3 text-white font-weight-bold text-uppercase">
+				Nouvelle citation
+			</div>
+
+		</div>
+	</div>
+</div>
+{# {{ "now"|date('d/m/Y H:i', timezone="Europe/Paris") }} #}
+
+
+{% endblock %}
+
+{% block javascripts %}
+{% include "common/footer.html.twig" %}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Ce site a été crér dans le but de tester et valider mes compétencences
+						  dans le domanes de l'informatique. Vous y trouverez tous les détails sur moi et nmon univers"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/blog.css">
+        <link href="css_2/css/meteo.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+
+	</head>
+	<body>
+		{% block body %}{% endblock %}
+
+
+		{% block javascripts %}{% endblock %}
+
+		{% block footer %}
+	   <div class="bg-info text-white text-center center">
+        {% set fcbk = 'https://www.facebook.com/photo.php?fbid=2771453106273856&set=a.327391027346755&type=3&theater' %}
+       	Copyright {{ "now"|date('d/m/Y', timezone="Europe/Paris") }} &copy; by  <a class="text-white" href="{{fcbk}}">Ismael SACKO</a>
+      </div>		
+		{% endblock %}
+	</body>
+</html>
+

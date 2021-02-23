@@ -1,0 +1,45 @@
+{% extends 'secondsite/base.html.twig' %}
+
+{% block title %}New Contact{% endblock %}
+{#{% block carousel %}
+    
+{% endblock %}#}
+
+
+{% block body %}
+    <div class="container mt-5 mb-5 contact_view">
+       
+        <div class="row ml-1">
+            <div class="col-sm-8 col-md-6 col-lg-6 bg-dark text-white mr-2">
+                {{ include('secondsite/ad/_form.html.twig', {'button_label': 'Envoyer'}) }}
+            </div>
+            <div class="col-sm-8 col-md-5 col-lg-5 border border-secondary mr-1 my-auto bg-warning">
+                <h1 class=" text-info"><i class="fas fa-mail-bulk">Nos e-mails :</i></h1>
+                <p class="h5">
+                    <i class="far fa-envelope text-success "></i>
+                    <span class="text-warning">N°1</span>
+                    <span class="text-danger">ismalsacko<i class="fas fa-at"></i>yahoo.fr</span>
+                </p>
+                <p class="h5">
+                    <i class="far fa-envelope text-success "></i>
+                    <span class="text-warning">N°2</span>
+                    <span class="text-danger">ismalsacko<i class="fas fa-at"></i>gmail.com</span>
+                </p>
+                <p class="h5">
+                    <i class="far fa-envelope text-success "></i>
+                    <span class="text-warning">N°3</span>
+                    <span class="text-danger">superagence<i class="fas fa-at"></i>digitale.ml</span>
+                </p>
+                <h1 class=" text-info"> <i class="fas fa-tty">Tél:</i> </h1>
+                <p class="h5 text-info">
+                    <i class="fas fa-phone-square-alt">N°1 : (+33) 658021636 </i>
+                </p>
+                <p class="h5 text-info">
+                    
+                    <i class="fas fa-phone-square-alt">N°2 : (+223) 73136789 </i>
+                </p>
+             </div>
+        </div>
+        <a class="btn btn-success mb-2 mt-2" href="{{ path('home') }}">Retour à l'accueil</a>
+    </div>
+{% endblock %}

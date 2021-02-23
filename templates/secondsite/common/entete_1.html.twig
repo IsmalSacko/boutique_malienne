@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-success" href="{{ path('home') }}">
+        <i class="fab fa-ember">Super-Agence-Digitale</i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link text-warning" href="{{ path('home_index') }}">
+                    <i class="fas fa-shopping-cart">Boutique~Malienne</i>
+
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="{{ path('projets_realises-index') }}">
+                    <i class="fab fa-internet-explorer">Projets-Réalisés</i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-success" href="{{ path('ad_index') }}">
+                    <i class="fas fa-ad">Offres</i></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-warning" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    <i class="fab fa-dev">Services</i></a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item text-success" href="/#dev_web">Dév-Web</a>
+                    <a class="dropdown-item text-warning" href="/#mob">Application-mobile</a>
+                    <a class="dropdown-item text-danger" href="/#design">Web-Design</a>
+                    <a class="dropdown-item text-success" href="/#seo">SEO</a>
+                    <a class="dropdown-item text-warning" href="/#refonte">Refonte</a>
+                    <a class="dropdown-item text-danger" href="/#UX">UX-UI</a>
+                    <a class="dropdown-item text-success" href="/#vitrine">Site-vitrine</a>
+                    <a class="dropdown-item text-warning" href="/#ecom">Site-e-commerce</a>
+                    <div class="dropdown-divider"></div>
+                    {#<a class="dropdown-item" href="#">Separated link</a>#}
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="{{ path('demo_index') }}"><i class="fas fa-play-circle">Demo</i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-success" href="http://s781750939.onlinehome.fr/"><i class="fas
+                fa-store">MALI</i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-warning" href="{{ path('contact_new') }}"><i class="fas fa-phone-alt">Contact</i></a>
+            </li>            
+        </ul>
+
+        {% if is_granted("ROLE_ADMIN") %}
+            <li class="nav-item">
+                <a class="nav-link text-warning" href="#">Admin</a>
+            </li>
+        {% endif %}
+        </ul>
+        <ul class="navbar-nav left">
+            {% if  app.user %}
+            <li class="nav-item dropdown">
+                <a href="#" id="accountDropdownLink"  class="nav-link dropdown-toggle "
+                   data-toggle="dropdown">
+
+                    <i class="fas fa-user-circle">{{ app.user.firstname }} {{ app.user.lastname }}</i>
+
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdownLink">
+                    <a class="dropdown-item text-primary" href="">Créer une annonce</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="{{ path('user_show', {'id':app.user.id}) }}" class="dropdown-item text-success">Mon
+                        Compte</a>
+                    <a href="" class="dropdown-item text-warning"><i class="fas fa-edit"></i></a>
+                    <div class="dropdown-divider"></div>
+                    <a href="{{ path('app_logout') }}" class="dropdown-item text-danger">Déconnexion</a>
+                </div>
+            </li>
+            {% else %}
+
+            <li class="nav-item">
+                <a class="nav-link text-warning" href="{{ path('user_new') }}">S'inscrire</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="{{ path('app_login') }}">Connexion </a>
+            </li>
+        </ul>
+        {% endif %}
+        {#<form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Recherche">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Rechercher</button>
+        </form>#}
+    </div>
+</nav>
+
