@@ -13,7 +13,7 @@
     <h5 class="mt-2 text-center text-info">{{ ad.title }}</h5>
             <div class="card bg-light mb-3">
                 <div class="card-header text-center">
-                    {{ad.room}} site à
+                     site à
                     <strong>{{ ad.price }} FCFA</strong>
                     <br>
                     <small>publié le {{ ad.UpdatedAt |date("m/d/Y") }}</small>
@@ -22,7 +22,9 @@
 
                      #}
 
-                    <img style="height: 150px; width: 100%; display: block;" src="{{ vich_uploader_asset(ad, 'imageFile') | imagine_filter('my_thumb') }}" alt="{{ ad.imageFile}}"></img>
+                    <img style="height: 150px; width: 100%; display: block;"
+                         src="{{ vich_uploader_asset(ad, 'imageFile') | imagine_filter('my_thumb') }}"
+                         alt="{{ ad.imageFile }}"/>
                     <div class="card-body">
                         <p class="card-text text-justify">
                             {{ad.content | raw}}

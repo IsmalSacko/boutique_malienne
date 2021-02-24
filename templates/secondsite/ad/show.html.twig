@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'secondsite/base.html.twig' %}
 
 {% block title %}ANNONCES{% endblock %}
 
@@ -28,17 +28,14 @@
                 <th>Nom du fichier</th>
                 <td>{{ ad.filename }}</td>
             </tr>
-            <tr class="bg-danger">
-                <th>Quantité</th>
-                <td>{{ ad.room }}</td>
-            </tr>
+
         </tbody>
     </table>
 
     <a class="btn btn-secondary text-info"href="{{ path('ad_index') }}">back to list</a>
     {% if app.user  %}
     <a class="btn btn-secondary text-info" href="{{ path('ad_edit', {'id': ad.id}) }}">edit</a>
-        {{ include('ad/_delete_form.html.twig') }}
+        {{ include('secondsite/ad/_delete_form.html.twig') }}
     {% endif %}
 </div>
 {% endblock %}

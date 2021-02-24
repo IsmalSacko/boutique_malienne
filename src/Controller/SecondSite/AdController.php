@@ -22,7 +22,7 @@ class AdController extends AbstractController
         $ad = $this->getDoctrine()
             ->getRepository(Aad::class)
             ->findAll();
-         $tmpfile = "/images/ad/";
+         $tmpfile = "/css_2/images/ad/";
 
         return $this->render('secondsite/ad/index.html.twig', [
             'ad' => $ad,

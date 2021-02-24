@@ -1,0 +1,13 @@
+{% extends 'secondsite/base.html.twig' %}
+
+{% block title %}New User2{% endblock %}
+
+{% block body %}
+   <div class="container">
+       <h1>Create new User2</h1>
+
+       {{ include('secondsite/user2/_form.html.twig') }}
+
+       <a href="{{ path('agence_user_index') }}">back to list</a>
+   </div>
+{% endblock %}

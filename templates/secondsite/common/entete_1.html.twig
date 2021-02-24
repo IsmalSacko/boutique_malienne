@@ -26,14 +26,14 @@
                 <a class="nav-link dropdown-toggle text-warning" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <i class="fab fa-dev">Services</i></a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item text-success" href="/#dev_web">Dév-Web</a>
-                    <a class="dropdown-item text-warning" href="/#mob">Application-mobile</a>
-                    <a class="dropdown-item text-danger" href="/#design">Web-Design</a>
-                    <a class="dropdown-item text-success" href="/#seo">SEO</a>
-                    <a class="dropdown-item text-warning" href="/#refonte">Refonte</a>
-                    <a class="dropdown-item text-danger" href="/#UX">UX-UI</a>
-                    <a class="dropdown-item text-success" href="/#vitrine">Site-vitrine</a>
-                    <a class="dropdown-item text-warning" href="/#ecom">Site-e-commerce</a>
+                    <a class="dropdown-item text-success" href="{{ path('agence') }}#dev_web">Dév-Web</a>
+                    <a class="dropdown-item text-warning" href="{{ path('agence') }}#mob">Application-mobile</a>
+                    <a class="dropdown-item text-danger" href="{{ path('agence') }}#design">Web-Design</a>
+                    <a class="dropdown-item text-success" href="{{ path('agence') }}#seo">SEO</a>
+                    <a class="dropdown-item text-warning" href="{{ path('agence') }}#refonte">Refonte</a>
+                    <a class="dropdown-item text-danger" href="{{ path('agence') }}#UX">UX-UI</a>
+                    <a class="dropdown-item text-success" href="{{ path('agence') }}#vitrine">Site-vitrine</a>
+                    <a class="dropdown-item text-warning" href="{{ path('agence') }}#ecom">Site-e-commerce</a>
                     <div class="dropdown-divider"></div>
                     {#<a class="dropdown-item" href="#">Separated link</a>#}
                 </div>
@@ -67,10 +67,11 @@
 
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdownLink">
-                    <a class="dropdown-item text-primary" href="">Créer une annonce</a>
+                    <a class="dropdown-item text-primary" href="{{ path('ad_new') }}">Créer une annonce</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ path('user_show', {'id':app.user.id}) }}" class="dropdown-item text-success">Mon
-                        Compte</a>
+                    <a href="{{ path('user2_show', {'id':app.user.id}) }}" class="dropdown-item text-success">Mon
+                        Compte
+                    </a>
                     <a href="" class="dropdown-item text-warning"><i class="fas fa-edit"></i></a>
                     <div class="dropdown-divider"></div>
                     <a href="{{ path('app_logout') }}" class="dropdown-item text-danger">Déconnexion</a>
@@ -79,7 +80,7 @@
             {% else %}
 
             <li class="nav-item">
-                <a class="nav-link text-warning" href="{{ path('user_new') }}">S'inscrire</a>
+                <a class="nav-link text-warning" href="{{ path('agence_user_new') }}">S'inscrire</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-danger" href="{{ path('app_login') }}">Connexion </a>

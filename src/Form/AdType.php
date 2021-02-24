@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\Aad;
 
-use App\Form\ImagesFormType;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -38,13 +38,18 @@ class AdType extends AbstractType
                 'required' => false,
                 'allow_extra_fields' => true
             ])
-            ->add('room',IntegerType::class,[
-                'label'=>'Quantité',
+            ->add('filename',TextType::class,[
+                'label'=>'',
                 'attr' =>[
                     'placeholder' => 'Quantité(entier)'
                 ]
             ])
-
+            ->add('submit', SubmitType::class,[
+                'label'=>'Enregistrer',
+                'attr' => [
+                    'class'=>'btn btn-info btn-block'
+                ]
+            ])
         ;
     }
 

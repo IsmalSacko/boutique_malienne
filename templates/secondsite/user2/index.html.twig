@@ -1,0 +1,42 @@
+{% extends 'secondsite/base.html.twig' %}
+
+{% block title %}User2 index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>User2 index</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Password</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user2 in user2s %}
+                <tr>
+                    <td>{{ user2.id }}</td>
+                    <td>{{ user2.email }}</td>
+                    <td>{{ user2.roles ? user2.roles|json_encode : '' }}</td>
+                    <td>{{ user2.password }}</td>
+                    <td>
+                        <a href="{{ path('user2_show', {'id': user2.id}) }}">show</a>
+                        <a href="{{ path('user2_edit', {'id': user2.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('agence_user_new') }}">Create new</a>
+    </div>
+
+{% endblock %}
